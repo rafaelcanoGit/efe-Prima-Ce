@@ -36,6 +36,7 @@ class FilmController extends Controller
         return Redirect::to('dvdrentalstore/film');
     }
     public function destroy($film_id){
+        DB::table('films_actors')->where('film_id', $film_id)->delete();
         DB::table('films')->where('film_id', $film_id)->delete();
         return Redirect::to('dvdrentalstore/film');                                   
     }

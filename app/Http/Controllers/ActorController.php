@@ -41,6 +41,7 @@ class ActorController extends Controller
         return Redirect::to('dvdrentalstore/actor');
     }
     public function destroy($actor_id){
+        DB::table('films_actors')->where('actor_id', $actor_id)->delete();
         DB::table('actors')->where('actor_id', $actor_id)->delete();
         return Redirect::to('dvdrentalstore/actor');                                   
     }
